@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>نظام إدارة الموظفين </title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <div class="container">
+    <h2>نموذج إضافة موظف</h2>
+
+    <form id="employeeForm">
+      <input type="text" id="name" placeholder="الاسم الكامل" required />
+      <input type="text" id="role" placeholder="الوظيفة" required />
+      <select id="status" required>
+        <option value=""> الحالة</option>
+        <option value="Active">نشط</option>
+        <option value="On Leave">إجازة</option>
+        <option value="Terminated">منتهي</option>
+      </select>
+      <input type="text" id="salary" placeholder="الراتب" required />
+      <button type="submit">إضافة الموظف</button>
+      <div id="formError" class="error"></div>
+    </form>
+
+
+   <div class="filters">
+  <input type="text" id="searchAll" placeholder="ابحث عن اسم، وظيفة، حالة، راتب ، مكافأة" />
+
+      <button id="clearFilters">فلترة</button>
+    </div>
+
+    <div id="counters">
+      عدد الموظفين: <span id="mainCount">0</span> | 
+      عدد الموظفين في سلة المهملات: <span id="trashCount">0</span> | 
+      إجمالي الرواتب: <span id="totalSalary">0</span> ر.س
+    </div>
+</section>
+<section>
+    <h3>قائمة الموظفين</h3>
+    <table id="employeeTable">
+      <thead>
+        <tr>
+          <th>الاسم</th>
+          <th>الوظيفة</th>
+          <th>الحالة</th>
+          <th>الراتب</th>
+          <th>المكافأة</th>
+          <th>الإجراءات</th>
+        </tr>
+      </thead>
+      <tbody></tbody>
+    </table>
+
+    <button id="toggleTrashBtn">عرض سلة المحذوفات</button>
+
+    <div id="trashSection" style="display:none;">
+      <h3>سلة المحذوفات</h3>
+      <table id="trashTable">
+        <thead>
+          <tr>
+            <th>الاسم</th>
+            <th>الوظيفة</th>
+            <th>الحالة</th>
+            <th>الراتب</th>
+            <th>المكافأة</th>
+            <th>الإجراءات</th>
+          </tr>
+        </thead>
+        <tbody></tbody>
+      </table>
+    </div>
+  </div>
+
+  
+  <div id="bonusModal" class="modal">
+    <div class="modal-content">
+      <span id="closeBonusModal" class="close">&times;</span>
+      <h3>أدخل نسبة المكافأة (%)</h3>
+      <input type="number" id="bonusInput" min="0" max="100" placeholder=" 10" />
+      <button id="saveBonusBtn">حفظ</button>
+      <div id="bonusError" class="error"></div>
+    </div>
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>
